@@ -1,6 +1,8 @@
 package clases;
 
-public class Producto {
+import interfaces.Identificable;
+
+public class Producto implements Identificable{
 	private static int correlativo = 2001;
 	int codigoProducto;
 	String nombre;
@@ -83,6 +85,11 @@ public class Producto {
 		this.stockActual = updateProducto.stockActual;
 		this.stockMinimo = updateProducto.stockMinimo;
 		this.stockMaximo = updateProducto.stockMaximo;
+	}
+	@Override
+	public int getCodigo() {
+		// TODO Auto-generated method stub
+		return codigoProducto;
 	}
 	
 	

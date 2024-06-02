@@ -176,7 +176,8 @@ public class MantenimientoProductos extends JInternalFrame {
 		btnBuscar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				//System.out.print(cliente);
-				Producto product=controllerProductos.FindProducto(Integer.parseInt(txtFind.getText()));
+//				Producto product=controllerProductos.FindProducto(Integer.parseInt(txtFind.getText()));
+				Producto product=controllerProductos.FinbyIdArray(listaProductos,Integer.parseInt(txtFind.getText()));
 				if (product==null)  {
 					LimpiarCampos(txtFind,txtId,txtNombre,txtPrecio,txtStockActual,txtStockMaximo,txtStockMinimo, btnEliminar, btnUpdate);
 				return ;	       
@@ -203,14 +204,14 @@ public class MantenimientoProductos extends JInternalFrame {
 			public void actionPerformed(ActionEvent e) {
 				Producto updateProduct=ReturnProducto(txtNombre,txtPrecio,txtStockActual,txtStockMaximo,txtStockMinimo);
 				
-				controllerProductos.FindProducto(Integer.parseInt(txtId.getText())).setProducto(updateProduct);;
+				controllerProductos.FinbyIdArray(listaProductos,Integer.parseInt(txtId.getText())).setProducto(updateProduct);;
 				
 			}
 		});
 	
 		btnEliminar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				controllerProductos.DeleteProducto(Integer.parseInt(txtId.getText()));
+				controllerProductos.DeleteyIdArray(listaProductos,Integer.parseInt(txtId.getText()));
 				LimpiarCampos(txtFind,txtId,txtNombre,txtPrecio,txtStockActual,txtStockMaximo,txtStockMinimo, btnEliminar, btnUpdate);
 				
 			}
@@ -218,7 +219,8 @@ public class MantenimientoProductos extends JInternalFrame {
 		btnAdd.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				Producto newProduct=ReturnProducto(txtNombre,txtPrecio,txtStockActual,txtStockMaximo,txtStockMinimo);
-				listaProductos.add(newProduct);
+				//listaProductos.add(newProduct);
+				controllerProductos.AddArray(listaProductos, newProduct);
 				LimpiarCampos(txtFind,txtId,txtNombre,txtPrecio,txtStockActual,txtStockMaximo,txtStockMinimo, btnEliminar, btnUpdate);
 				
 			}
