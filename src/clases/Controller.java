@@ -11,6 +11,7 @@ public class Controller {
 
 	public Controller() {
 		seedProductos();
+		seedClientes();
 		// TODO Auto-generated constructor stub
 	}
 
@@ -19,6 +20,11 @@ public class Controller {
 		listaProductos.add(new Producto("Gaseosa Coca Cola", 2.5, 5, 0, 10));
 		listaProductos.add(new Producto("Gaseosa Fanta", 2.5, 5, 0, 10));
 		listaProductos.add(new Producto("Gaseosa Pepsi", 2.5, 5, 0, 10));
+	}
+	private void seedClientes() {
+		listaClientes.add(new Cliente("brayan","Coveñas","Callao","900151921","10735224"));
+		listaClientes.add(new Cliente("elver","tito","Piura","997151921","10735224"));
+		listaClientes.add(new Cliente("Juan","Alcachofa","Piura","997151921","10735224"));
 	}
 
 	// Funciones productos

@@ -72,7 +72,7 @@ public class MantenimientoProductos extends JInternalFrame {
 		setIconifiable(true);
 		setClosable(true);
 		setMaximizable(true);
-		setBounds(100, 100, 710, 443);
+		setBounds(100, 100, 710, 450);
 		getContentPane().setLayout(null);
 		
 		JButton btnNewButton = new JButton("New button");

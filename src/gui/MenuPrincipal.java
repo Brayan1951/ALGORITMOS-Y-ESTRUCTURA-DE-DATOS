@@ -57,6 +57,7 @@ public class MenuPrincipal extends JFrame {
 		menuBar.add(mnNewMenu);
 		
 		JMenuItem menuClientes = new JMenuItem("CLIENTES");
+
 		mnNewMenu.add(menuClientes);
 		
 		JMenuItem menuProductos = new JMenuItem("PRODUCTOS");
@@ -91,17 +92,24 @@ public class MenuPrincipal extends JFrame {
 		menuProductos.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				
-				
-				
 				MantenimientoProductos mantenimientoProductos=new MantenimientoProductos(mainController);
 				escritorio.add(mantenimientoProductos);
 				mantenimientoProductos.show();
-
-				
-				
 				
 			}
 		});
+		
+		
+		menuClientes.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				
+				MantenimientoCliente mantenimientoCliente=new MantenimientoCliente(mainController);
+				escritorio.add(mantenimientoCliente);
+				mantenimientoCliente.show();
+				
+			}
+		});
+		
 		
 	}
 }
