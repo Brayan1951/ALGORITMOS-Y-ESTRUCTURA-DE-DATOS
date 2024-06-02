@@ -7,6 +7,15 @@ public class Producto {
 	double precio;
 	int stockActual,stockMinimo,stockMaximo;
 
+	public Producto( Producto newProducto) {
+		super();
+		this.codigoProducto = correlativo++;
+		this.nombre = newProducto.nombre;
+		this.precio = newProducto.precio;
+		this.stockActual = newProducto.stockActual;
+		this.stockMinimo = newProducto.stockMinimo;
+		this.stockMaximo = newProducto.stockMaximo;
+	}
 	public Producto( String nombre, double precio, int stockActual, int stockMinimo,
 			int stockMaximo) {
 		super();
