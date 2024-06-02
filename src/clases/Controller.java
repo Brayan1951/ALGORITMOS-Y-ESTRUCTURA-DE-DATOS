@@ -35,6 +35,14 @@ public class Controller {
 		return null;
 		
 	}
+	public void DeleteProducto(int id ) {
+		for (int i = 0; i < listaProductos.size(); i++) {
+			if (listaProductos.get(i).getCodigoProducto()==id) { 
+			listaProductos.remove(i);
+			}			
+		}
+		
+	}
 	
 	
 	

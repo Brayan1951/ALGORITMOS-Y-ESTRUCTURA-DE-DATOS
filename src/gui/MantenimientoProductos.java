@@ -39,14 +39,17 @@ public class MantenimientoProductos extends JInternalFrame {
 			}
 		});
 	}
-	
-	public void LimpiarCampos(JTextField txtId,JTextField	txtNombre,JTextField	txtPrecio,JTextField	txtStockActual,JTextField	txtStockMaximo,JTextField	txtStockMinimo) {
+	//Funciones repetitivas
+	public void LimpiarCampos(JTextField txtFind,JTextField txtId,JTextField	txtNombre,JTextField	txtPrecio,JTextField	txtStockActual,JTextField	txtStockMaximo,JTextField	txtStockMinimo,JButton btnEliminar,JButton btnUpdate) {
+		txtFind.setText("");
 		txtId.setText("");
 		txtNombre.setText("");
 		txtPrecio.setText("");
 		txtStockActual.setText("");
 		txtStockMaximo.setText("");
 		txtStockMinimo.setText("");
+		btnEliminar.setEnabled(false);
+		btnUpdate.setEnabled(false);
 		
 	}
 	public Producto ReturnProducto(JTextField	txtNombre,JTextField	txtPrecio,JTextField	txtStockActual,JTextField	txtStockMaximo,JTextField	txtStockMinimo) {
@@ -150,14 +153,28 @@ public class MantenimientoProductos extends JInternalFrame {
 		getContentPane().add(lblBuscar);
 		
 		JButton btnBuscar = new JButton("Buscar");
+		JButton btnUpdate = new JButton("Actualizar");
+		btnUpdate.setEnabled(false);
+		btnUpdate.setBounds(421, 370, 101, 21);
+		getContentPane().add(btnUpdate);
 		
+		JButton btnEliminar = new JButton("Eliminar");
+		btnEliminar.setEnabled(false);
+		
+		
+		btnEliminar.setBounds(10, 370, 101, 21);
+		getContentPane().add(btnEliminar);
+		btnBuscar.setBounds(577, 10, 85, 21);
+		getContentPane().add(btnBuscar);
+		
+		//Funciones 
 		btnBuscar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				//System.out.print(cliente);
 				Producto product=controllerProductos.FindProducto(Integer.parseInt(txtFind.getText()));
 				if (product==null)  {
-					LimpiarCampos(txtId,txtNombre,txtPrecio,txtStockActual,txtStockMaximo,txtStockMinimo);
-				return ;	
+					LimpiarCampos(txtFind,txtId,txtNombre,txtPrecio,txtStockActual,txtStockMaximo,txtStockMinimo, btnEliminar, btnUpdate);
+				return ;	       
 				}
 				System.out.print("camnbio de filds");
 				txtId.setText(""+product.getCodigoProducto());
@@ -166,16 +183,17 @@ public class MantenimientoProductos extends JInternalFrame {
 				txtStockActual.setText(""+product.getStockActual());
 				txtStockMaximo.setText(""+product.getStockMaximo());
 				txtStockMinimo.setText(""+product.getStockMinimo());
-				
+			
+				btnEliminar.setEnabled(true);
+				btnUpdate.setEnabled(true);
 				//System.out.print(controllerProductos.FindProducto(Integer.parseInt(txtFind.getText())));
 				
 				
 			}
 		});
-		btnBuscar.setBounds(577, 10, 85, 21);
-		getContentPane().add(btnBuscar);
+	
 		
-		JButton btnUpdate = new JButton("Actualizar");
+		
 		btnUpdate.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				Producto updateProduct=ReturnProducto(txtNombre,txtPrecio,txtStockActual,txtStockMaximo,txtStockMinimo);
@@ -184,9 +202,15 @@ public class MantenimientoProductos extends JInternalFrame {
 				
 			}
 		});
-		btnUpdate.setBounds(10, 370, 101, 21);
-		getContentPane().add(btnUpdate);
-		
+	
+		btnEliminar.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				controllerProductos.DeleteProducto(Integer.parseInt(txtId.getText()));
+				LimpiarCampos(txtFind,txtId,txtNombre,txtPrecio,txtStockActual,txtStockMaximo,txtStockMinimo, btnEliminar, btnUpdate);
+				
+			}
+		});
+	
 		
 	
 
