@@ -221,6 +221,7 @@ public class MantenimientoProductos extends JInternalFrame {
 				Producto newProduct=ReturnProducto(txtNombre,txtPrecio,txtStockActual,txtStockMaximo,txtStockMinimo);
 				//listaProductos.add(newProduct);
 				controllerProductos.AddArray(listaProductos, newProduct);
+			
 				LimpiarCampos(txtFind,txtId,txtNombre,txtPrecio,txtStockActual,txtStockMaximo,txtStockMinimo, btnEliminar, btnUpdate);
 				
 			}

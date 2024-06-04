@@ -82,6 +82,8 @@ public class Producto implements Identificable{
 	public void setProducto( Producto updateProducto) {
 		this.nombre = updateProducto.nombre;
 		this.precio = updateProducto.precio;
+		
+		
 		this.stockActual = updateProducto.stockActual;
 		this.stockMinimo = updateProducto.stockMinimo;
 		this.stockMaximo = updateProducto.stockMaximo;
@@ -92,6 +94,16 @@ public class Producto implements Identificable{
 		return codigoProducto;
 	}
 	
+	public void ventaProducto(int cantidadVenta) {
+		if (cantidadVenta > this.stockActual) {
+			return;
+		}else {
+			
+		this.stockActual=this.stockActual-cantidadVenta;
+		}
 	
+		
+		
+	}
 
 }

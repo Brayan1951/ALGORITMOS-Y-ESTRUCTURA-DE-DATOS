@@ -18,6 +18,7 @@ import javax.swing.JLabel;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
 import java.awt.event.ActionEvent;
+import javax.swing.SwingConstants;
 
 public class MenuPrincipal extends JFrame {
 
@@ -65,12 +66,16 @@ public class MenuPrincipal extends JFrame {
 		mnNewMenu.add(menuProductos);
 		
 		JMenuItem menuVentas = new JMenuItem("VENTAS");
+		menuVentas.setHorizontalAlignment(SwingConstants.CENTER);
+	
 		menuBar.add(menuVentas);
 		
 		JMenuItem menuAlmacen = new JMenuItem("ALMACEN");
+		menuAlmacen.setHorizontalAlignment(SwingConstants.CENTER);
 		menuBar.add(menuAlmacen);
 		
 		JMenuItem menuReportes = new JMenuItem("REPORTES");
+		menuReportes.setHorizontalAlignment(SwingConstants.CENTER);
 		menuBar.add(menuReportes);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
@@ -107,6 +112,15 @@ public class MenuPrincipal extends JFrame {
 				escritorio.add(mantenimientoCliente);
 				mantenimientoCliente.show();
 				
+			}
+		});
+		
+		menuVentas.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				Ventas ventas=new Ventas(mainController);
+				escritorio.add(ventas);
+				ventas.show();
+			
 			}
 		});
 		

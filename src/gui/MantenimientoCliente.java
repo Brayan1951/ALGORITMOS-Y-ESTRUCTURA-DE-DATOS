@@ -56,7 +56,6 @@ public class MantenimientoCliente extends JInternalFrame {
 		
 	}
 	public void RellenarCampos(Cliente client,JTextField	txtNombre,JTextField	txtApellido,JTextField	txtDireccion,JTextField	txtTelefono,JTextField	txtDni,JButton btnEliminar,JButton btnUpdate) {
-		txtFind.setText("");
 		txtId.setText(""+client.getCodigo());
 		txtNombre.setText(""+client.getNombres());
 		txtApellido.setText(""+client.getApellidos());
@@ -211,7 +210,7 @@ public class MantenimientoCliente extends JInternalFrame {
 		});
 		btnAdd.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				Cliente newCliente=controllerCliente.FinbyIdArray(listaClientes,Integer.parseInt(txtFind.getText()));
+				Cliente newCliente=ReturnCliente(txtNombre, txtApellido, txtDireccion, txtTelefono, txtDni);
 				
 				//listaProductos.add(newProduct);
 				controllerCliente.AddArray(listaClientes, newCliente);

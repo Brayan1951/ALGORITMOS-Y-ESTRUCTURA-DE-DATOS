@@ -7,6 +7,15 @@ public class Cliente implements Identificable {
 	int codigoCliente;
 	String nombres,apellidos,direccion,telefono,dni;
 	
+	public Cliente( Cliente newCliente) {
+		super();
+		this.codigoCliente = correlativo++;
+		this.nombres = newCliente.nombres;
+		this.apellidos = newCliente.apellidos;
+		this.direccion = newCliente.direccion;
+		this.telefono = newCliente.telefono;
+		this.dni = newCliente.dni;
+	}
 	public Cliente( String nombres, String apellidos, String direccion, String telefono, String dni) {
 		super();
 		this.codigoCliente = correlativo++;
