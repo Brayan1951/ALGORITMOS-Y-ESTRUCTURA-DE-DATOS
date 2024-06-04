@@ -1,6 +1,8 @@
 package clases;
 
-public class Venta {
+import interfaces.Identificable;
+
+public class Venta implements Identificable {
 	private static int correlativo = 3001;
 	int codigoVenta,codigoCliente,codigoProducto,cantidad;
 	double precio;
@@ -20,6 +22,13 @@ public class Venta {
 
 	public Venta() {
 		// TODO Auto-generated constructor stub
+	}
+
+
+	@Override
+	public int getCodigo() {
+		// TODO Auto-generated method stub
+		return this.codigoVenta;
 	}
 
 }
