@@ -59,7 +59,7 @@ public class MantenimientoProductos extends JInternalFrame {
 		int stockActual=Integer.parseInt( txtStockActual.getText());
 		int stockMaximo=Integer.parseInt( txtStockMaximo.getText());
 		int stockMinimo=Integer.parseInt( txtStockMinimo.getText());
-		return new Producto(nombre,precio,stockActual,stockMaximo,stockMinimo);
+		return new Producto(nombre,precio,stockActual,stockMinimo,stockMaximo);
 		
 	}
 	/**
@@ -182,7 +182,6 @@ public class MantenimientoProductos extends JInternalFrame {
 					LimpiarCampos(txtFind,txtId,txtNombre,txtPrecio,txtStockActual,txtStockMaximo,txtStockMinimo, btnEliminar, btnUpdate);
 				return ;	       
 				}
-				System.out.print("camnbio de filds");
 				txtId.setText(""+product.getCodigoProducto());
 				txtNombre.setText(""+product.getNombre());
 				txtPrecio.setText(""+product.getPrecio());

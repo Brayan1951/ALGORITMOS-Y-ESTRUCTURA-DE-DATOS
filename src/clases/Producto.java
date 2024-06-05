@@ -2,14 +2,14 @@ package clases;
 
 import interfaces.Identificable;
 
-public class Producto implements Identificable{
+public class Producto implements Identificable {
 	private static int correlativo = 2001;
 	int codigoProducto;
 	String nombre;
 	double precio;
-	int stockActual,stockMinimo,stockMaximo;
+	int stockActual, stockMinimo, stockMaximo;
 
-	public Producto( Producto newProducto) {
+	public Producto(Producto newProducto) {
 		super();
 		this.codigoProducto = correlativo++;
 		this.nombre = newProducto.nombre;
@@ -18,8 +18,8 @@ public class Producto implements Identificable{
 		this.stockMinimo = newProducto.stockMinimo;
 		this.stockMaximo = newProducto.stockMaximo;
 	}
-	public Producto( String nombre, double precio, int stockActual, int stockMinimo,
-			int stockMaximo) {
+
+	public Producto(String nombre, double precio, int stockActual, int stockMinimo, int stockMaximo) {
 		super();
 		this.codigoProducto = correlativo++;
 		this.nombre = nombre;
@@ -32,8 +32,6 @@ public class Producto implements Identificable{
 	public int getCodigoProducto() {
 		return codigoProducto;
 	}
-
-
 
 	public double getPrecio() {
 		return precio;
@@ -68,42 +66,43 @@ public class Producto implements Identificable{
 	}
 
 	public void setNombre(String nombre) {
-		this.nombre = nombre;		
+		this.nombre = nombre;
 	}
 
 	public Producto() {
 		// TODO Auto-generated constructor stub
 	}
-	
+
 	public String getNombre() {
 		return this.nombre;
 	}
-	
-	public void setProducto( Producto updateProducto) {
+
+	public void setProducto(Producto updateProducto) {
 		this.nombre = updateProducto.nombre;
 		this.precio = updateProducto.precio;
-		
-		
+
 		this.stockActual = updateProducto.stockActual;
 		this.stockMinimo = updateProducto.stockMinimo;
 		this.stockMaximo = updateProducto.stockMaximo;
 	}
+
 	@Override
 	public int getCodigo() {
 		// TODO Auto-generated method stub
 		return codigoProducto;
 	}
-	
-	public void ventaProducto(int cantidadVenta) {
+
+	public boolean ventaProducto(int cantidadVenta) {
 		if (cantidadVenta > this.stockActual) {
-			return;
-		}else {
-			
-		this.stockActual=this.stockActual-cantidadVenta;
+			return false;
 		}
-	
-		
-		
+		if ((this.stockActual- cantidadVenta )< this.stockMinimo) {
+			return false;
+		}
+
+		this.stockActual = this.stockActual - cantidadVenta;
+		return true;
+
 	}
 
 }

@@ -16,7 +16,7 @@ public class Controller {
 	}
 
 	private void seedProductos() {
-		listaProductos.add(new Producto("Gaseosa Inka Cola", 2.5, 5, 0, 10));
+		listaProductos.add(new Producto("Gaseosa Inka Cola", 2.5, 5, 2, 10));
 		listaProductos.add(new Producto("Gaseosa Coca Cola", 2.5, 5, 0, 10));
 		listaProductos.add(new Producto("Gaseosa Fanta", 2.5, 5, 0, 10));
 		listaProductos.add(new Producto("Gaseosa Pepsi", 2.5, 5, 0, 10));
@@ -27,29 +27,25 @@ public class Controller {
 		listaClientes.add(new Cliente("Juan","Alcachofa","Piura","997151921","10735224"));
 	}
 
-	// Funciones productos
-	public ArrayList<Producto> AllProducts() {
-		return listaProductos;
-	}
+	// Funciones vender
 
-	public Producto FindProducto(int id) {
-
-		for (Producto cliente : listaProductos) {
-			if (cliente.getCodigoProducto() == id)
-				return cliente;
+	public void vender(Venta pedido) {
+		
+		
+		boolean validar=FinbyIdArray(listaProductos, pedido.codigoProducto).ventaProducto(pedido.cantidad);
+		if (validar) {
+			listaVentass.add(pedido);
+		} else {
+			
 		}
-		return null;
-
+		
+		
+		
+		
 	}
+	
 
-	public void DeleteProducto(int id) {
-		for (int i = 0; i < listaProductos.size(); i++) {
-			if (listaProductos.get(i).getCodigoProducto() == id) {
-				listaProductos.remove(i);
-			}
-		}
 
-	}
 
 	// funcion para todo
 	

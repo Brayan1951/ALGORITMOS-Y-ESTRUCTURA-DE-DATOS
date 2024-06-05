@@ -31,4 +31,9 @@ public class Venta implements Identificable {
 		return this.codigoVenta;
 	}
 
+	
+	
+	
+	
+	
 }
